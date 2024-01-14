@@ -1,14 +1,11 @@
 #include <iostream>
 
-int main(){
-	
-	std::cout << "Enter a number: ";
-
-	int x { };
-	std::cin >> x;
-	
-	std::cout << "You entered " << x << "\n";
-	return 0;
-
+int main()
+{
+	int userAnswer{ };
+	std::cout << "Enter an integer: ";	
+	std::cin >> userAnswer;
+	std::cout << "Double that number is: " << userAnswer * 2 << "\n";
+	std::cout << "Triple that number is: " << userAnswer * 3 << "\n";
 
 }
