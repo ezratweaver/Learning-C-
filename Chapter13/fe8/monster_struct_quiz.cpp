@@ -1,5 +1,4 @@
 #include <iostream>
-#include <string>
 #include <string_view>
 
 
@@ -21,7 +20,7 @@ struct Monster
 };
 
 
-std::string getMonsterTypeString(MonsterType type)
+constexpr std::string_view getMonsterTypeString(MonsterType type)
 {
     using enum MonsterType;
 
