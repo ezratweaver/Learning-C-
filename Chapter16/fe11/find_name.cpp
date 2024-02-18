@@ -1,7 +1,21 @@
+#include <ios>
 #include <iostream>
 #include <vector>
 #include <string>
-#include <string_view>
+
+
+template <typename T>
+bool isValueInArray(const std::vector<T>& arr, const T& item)
+{
+    for ( const auto& element : arr )
+    {
+        if (element == item)
+        {
+            return true;
+        }
+    }
+    return false;
+}
 
 
 int main()
@@ -15,17 +29,7 @@ int main()
 
     std::cin >> userNameInput;
 
-    bool found { false };
-    for ( const std::string_view name : names )
-    {
-        if (name == userNameInput)
-        {
-            std::cout << userNameInput << " was found.\n";
-            found = true;
-        }
-    }
+    std::cout << std::boolalpha;
 
-    if (!found)
-        std::cout << userNameInput << " was not found.\n";
-
+    std::cout << isValueInArray(names, userNameInput) << '\n';
 }
