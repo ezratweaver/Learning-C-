@@ -1,3 +1,5 @@
+#include <cassert>
+#include <fstream>
 #include <cstddef>
 #include <ios>
 #include <iostream>
@@ -47,8 +49,7 @@ bool letterInWord(char in, const std::string_view word)
 }
 
 char getUserInput(const std::vector<char>& lettersGuessed)
-{
-    char input {};
+{ char input {};
     
     while (true) {
         std::cout << "Enter your next letter: ";
@@ -162,13 +163,35 @@ int playGame(const std::vector<std::string>& wordList)
 
 }
 
+std::vector<std::string> getFileWords(std::string_view filename)
+{
+    std::ifstream file(filename.data());
+
+    if (!file.is_open())
+    {
+        std::cerr << "Unable to find file " << filename << '\n';
+        assert(true);
+    }
+
+    std::vector<std::string> words; 
+
+    std::string line;
+    while (std::getline(file, line))
+    {
+        if (!line.empty())
+            words.push_back(line);
+    }
+
+    file.close();
+    return words;
+}
 
 int main()
 {
-    using namespace std::literals;
-    std::vector wordList { "test"s, "word"s, "hello"s, "thisiscool"s };
 
-    playGame(wordList);
+    std::vector<std::string> words { getFileWords("words.txt") };
+
+    playGame(words);
 
     return 0;
 }
