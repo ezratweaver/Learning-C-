@@ -49,7 +49,8 @@ bool letterInWord(char in, const std::string_view word)
 }
 
 char getUserInput(const std::vector<char>& lettersGuessed)
-{ char input {};
+{
+    char input {};
     
     while (true) {
         std::cout << "Enter your next letter: ";
@@ -120,7 +121,7 @@ std::string displayWordProgress(const std::string_view word,
     }
 
     std::cout << "The word: " << build << "   Wrong guesses: "
-        << guesses << '\n';
+              << guesses << '\n';
     return build;
 }
 
