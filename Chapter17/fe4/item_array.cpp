@@ -12,8 +12,8 @@ struct Item
 int main()
 {
 
-    constexpr std::array<Item, 4> inventory { Item{ "Sword", 5 }, Item{ "Dagger", 3 }, 
-                                              Item{ "Club", 2 }, Item{ "Spear", 7 } };
+    constexpr std::array<Item, 4> inventory {{ { "Sword", 5 }, { "Dagger", 3 }, 
+                                              { "Club", 2 }, { "Spear", 7 } }};
 
     for (const Item& item : inventory) 
     {
