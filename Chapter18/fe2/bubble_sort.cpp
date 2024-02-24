@@ -12,13 +12,24 @@ void printArray(int arr[], int length)
 
 void bubbleSort(int arr[], int length)
 {
+    int unsortedLength { length };
     for (int i{ 0 }; i < length - 1; ++i)
     {
-        for (int x{ 0 }; x < length - 1; ++x)
+        bool swap { false };
+        for (int x{ 0 }; x < unsortedLength - 1; ++x)
         {
             if (arr[x] > arr[x+1])
+            {
                 std::swap(arr[x], arr[x+1]);
+                swap = true;
+            }
         }
+        if (!swap)
+        {
+            std::cout << "Early termination on interation " << i << '\n';
+            break;
+        }
+        --unsortedLength;
     }
 
 }
